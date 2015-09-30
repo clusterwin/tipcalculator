@@ -13,8 +13,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipLable;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
+@property (weak, nonatomic) IBOutlet UISlider *tipSlider;
+@property (weak, nonatomic) IBOutlet UILabel *TipRateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *halfTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thirdTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *quarterTipLabel;
 
 - (IBAction)onTap:(id)sender;
+- (IBAction)sliderChanged:(id)sender;
 
 @end
 
@@ -48,14 +54,20 @@
     
 }
 
+- (IBAction)sliderChanged:(id)sender {
+    int tipRate = floor(self.tipSlider.value*100);
+    self.TipRateLabel.text = [NSString stringWithFormat:@"%d%%",tipRate];
+    [self updateValues];
+}
 
 - (void)updateValues{
     float billAmount = [self.billTextField.text floatValue];
-    NSArray *tipValues = @[@(0.1), @(0.15), @(0.2)];
-    float tipAmount = billAmount * [tipValues[self.tipControl.selectedSegmentIndex] floatValue];
+    float tipAmount = billAmount * floor(self.tipSlider.value*100)/100;
     float totalAmount = tipAmount + billAmount;
-    
     self.tipLable.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
-    self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f", totalAmount];
+    self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount];
+    self.halfTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/2];
+    self.thirdTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/3];
+    self.quarterTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/4];
 }
 @end
