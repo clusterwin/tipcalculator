@@ -9,6 +9,8 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *defaultTipLabel;
+@property (weak, nonatomic) IBOutlet UITextField *defaultTipTextField;
 
 @end
 
