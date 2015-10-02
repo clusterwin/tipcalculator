@@ -9,6 +9,9 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *defaultTipLabel;
+@property (weak, nonatomic) IBOutlet UITextField *defaultTipTextField;
+- (IBAction)onTap:(id)sender;
 
 @end
 
@@ -34,4 +37,12 @@
 }
 */
 
+- (IBAction)onTap:(id)sender {
+    int defaultRate = [self.defaultTipTextField.text intValue];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:defaultRate forKey:@"default_tip_rate"];
+    [defaults synchronize];
+    [self.view endEditing:YES];
+    
+}
 @end
