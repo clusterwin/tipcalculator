@@ -33,10 +33,6 @@
     self.title = @"Tip Calculator";
     // Load defaults if they exist
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int defaultTipRate = [defaults integerForKey:@"default_tip_rate"];
-    if (defaultTipRate){
-        self.tipSlider.value = ((float)defaultTipRate)/100;
-    }
     NSString *previousBillAmount = [defaults objectForKey:@"bill_amount"];
     if(previousBillAmount){
         self.billTextField.text = previousBillAmount;
@@ -86,11 +82,18 @@
         [defaults setObject:self.billTextField.text forKey:@"bill_amount"];
         [defaults synchronize];
     }
-    
 }
 
 - (void)onSettingsButton{
     [self.navigationController pushViewController:[[SettingsViewController alloc] init] animated:YES];
+}
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int defaultTipRate = [defaults integerForKey:@"default_tip_rate"];
+    self.tipSlider.value = ((float)defaultTipRate)/100;
+
+    [self updateValues];
 }
 @end
