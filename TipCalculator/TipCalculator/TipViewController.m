@@ -31,6 +31,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Tip Calculator";
+    // Load defaults if they exist
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int defaultTipRate = [defaults integerForKey:@"default_tip_rate"];
+    if (defaultTipRate){
+        self.tipSlider.value = ((float)defaultTipRate)/100;
+    }
+    NSString *previousBillAmount = [defaults objectForKey:@"bill_amount"];
+    if(previousBillAmount){
+        self.billTextField.text = previousBillAmount;
+    }
+    
     [ self updateValues];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
 }
@@ -53,16 +64,15 @@
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
     [self updateValues];
-    
 }
 
 - (IBAction)sliderChanged:(id)sender {
-    int tipRate = floor(self.tipSlider.value*100);
-    self.TipRateLabel.text = [NSString stringWithFormat:@"%d%%",tipRate];
     [self updateValues];
 }
 
 - (void)updateValues{
+    int tipRate = floor(self.tipSlider.value*100);
+    self.TipRateLabel.text = [NSString stringWithFormat:@"%d%%",tipRate];
     float billAmount = [self.billTextField.text floatValue];
     float tipAmount = billAmount * floor(self.tipSlider.value*100)/100;
     float totalAmount = tipAmount + billAmount;
@@ -71,6 +81,12 @@
     self.halfTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/2];
     self.thirdTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/3];
     self.quarterTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/4];
+    if([self.billTextField.text length]!= 0){
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.billTextField.text forKey:@"bill_amount"];
+        [defaults synchronize];
+    }
+    
 }
 
 - (void)onSettingsButton{
