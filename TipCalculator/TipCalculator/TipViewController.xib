@@ -48,12 +48,12 @@
                         <rect key="frame" x="55" y="188" width="291" height="6"/>
                     </variation>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0jV-vX-MgI">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="right" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0jV-vX-MgI">
                     <rect key="frame" x="252" y="58" width="97" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="249" y="102" width="97" height="30"/>
+                        <rect key="frame" x="210" y="102" width="136" height="30"/>
                     </variation>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7b-Zh-ONs">
@@ -65,19 +65,10 @@
                         <rect key="frame" x="55" y="223" width="73" height="39"/>
                     </variation>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLs-s3-EYm">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="180" y="223" width="163" height="39"/>
-                    </variation>
-                </label>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.0" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jon-IL-RAx">
                     <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="53" y="372" width="295" height="31"/>
+                        <rect key="frame" x="53" y="302" width="295" height="31"/>
                     </variation>
                     <connections>
                         <action selector="sliderChanged:" destination="-1" eventType="valueChanged" id="AGM-FM-M9A"/>
@@ -89,7 +80,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="169" y="420" width="62" height="21"/>
+                        <rect key="frame" x="169" y="278" width="62" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WR-ea-KiL">
@@ -98,7 +89,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="62" y="329" width="10" height="21"/>
+                        <rect key="frame" x="62" y="278" width="10" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q9-8F-8c7">
@@ -107,7 +98,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="325" y="321" width="18" height="37"/>
+                        <rect key="frame" x="325" y="270" width="18" height="37"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-Ud-mWZ">
@@ -116,7 +107,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="263" y="468" width="83" height="21"/>
+                        <rect key="frame" x="256" y="340" width="83" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-xl-qC2">
@@ -125,7 +116,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="263" y="507" width="83" height="21"/>
+                        <rect key="frame" x="256" y="369" width="83" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-UY-6H5">
@@ -134,7 +125,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="263" y="546" width="83" height="21"/>
+                        <rect key="frame" x="256" y="398" width="83" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three Ways" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnU-7j-BNB">
@@ -143,7 +134,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="62" y="507" width="90" height="21"/>
+                        <rect key="frame" x="55" y="369" width="90" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Four ways" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4H-wZ-VD7">
@@ -152,7 +143,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="62" y="546" width="79" height="21"/>
+                        <rect key="frame" x="55" y="398" width="79" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two ways" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1L3-nR-NXP">
@@ -161,7 +152,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="62" y="468" width="75" height="21"/>
+                        <rect key="frame" x="55" y="340" width="75" height="21"/>
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVB-qh-KPk">
@@ -173,13 +164,21 @@
                         <rect key="frame" x="210" y="140" width="133" height="21"/>
                     </variation>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLs-s3-EYm">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="180" y="223" width="163" height="39"/>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.98025465658165811" green="0.95063619622579809" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="T7b-Zh-ONs"/>
-                    <exclude reference="NLs-s3-EYm"/>
                     <exclude reference="jon-IL-RAx"/>
                     <exclude reference="Rze-en-STo"/>
                     <exclude reference="2WR-ea-KiL"/>
@@ -190,12 +189,12 @@
                     <exclude reference="GnU-7j-BNB"/>
                     <exclude reference="R4H-wZ-VD7"/>
                     <exclude reference="1L3-nR-NXP"/>
+                    <exclude reference="NLs-s3-EYm"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="T7b-Zh-ONs"/>
-                    <include reference="NLs-s3-EYm"/>
                     <include reference="jon-IL-RAx"/>
                     <include reference="Rze-en-STo"/>
                     <include reference="2WR-ea-KiL"/>
@@ -206,6 +205,7 @@
                     <include reference="GnU-7j-BNB"/>
                     <include reference="R4H-wZ-VD7"/>
                     <include reference="1L3-nR-NXP"/>
+                    <include reference="NLs-s3-EYm"/>
                 </mask>
             </variation>
             <connections>

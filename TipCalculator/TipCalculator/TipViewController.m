@@ -40,6 +40,8 @@
     
     [ self updateValues];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
+    
+    [self.billTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +60,6 @@
 */
 
 - (IBAction)onTap:(id)sender {
-    [self.view endEditing:YES];
     [self updateValues];
 }
 
