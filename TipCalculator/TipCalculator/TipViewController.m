@@ -70,14 +70,29 @@
 - (void)updateValues{
     int tipRate = floor(self.tipSlider.value*100);
     self.TipRateLabel.text = [NSString stringWithFormat:@"%d%%",tipRate];
-    float billAmount = [self.billTextField.text floatValue];
-    float tipAmount = billAmount * floor(self.tipSlider.value*100)/100;
-    float totalAmount = tipAmount + billAmount;
-    self.tipLable.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
-    self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount];
-    self.halfTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/2];
-    self.thirdTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/3];
-    self.quarterTipLabel.text = [NSString stringWithFormat:@"$%0.2f",totalAmount/4];
+    NSDecimalNumber *billAmount = [NSDecimalNumber decimalNumberWithString:self.billTextField.text];
+    NSDecimalNumber *tipRateDecimal = [[[NSDecimalNumber alloc] initWithInt:tipRate] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]];
+    
+    NSDecimalNumber *tipAmount =  [billAmount decimalNumberByMultiplyingBy:tipRateDecimal];
+    NSDecimalNumber *totalAmount = [tipAmount decimalNumberByAdding:billAmount];
+    NSNumberFormatter *twoDecimalPlaceFormatter = [[NSNumberFormatter alloc] init];
+    [twoDecimalPlaceFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [twoDecimalPlaceFormatter setMaximumFractionDigits:2];
+    [twoDecimalPlaceFormatter setMinimumFractionDigits:2];
+    
+    NSString *currencySymbol = [[NSLocale currentLocale] objectForKey:NSLocaleCurrencySymbol];
+    NSString *localizedTipAmount = [twoDecimalPlaceFormatter stringFromNumber:tipAmount];
+    NSString *localizedTotalAmount = [twoDecimalPlaceFormatter stringFromNumber:totalAmount];
+    NSString *localizedTipAmountDividedByTwo = [twoDecimalPlaceFormatter stringFromNumber:[totalAmount decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2"]]];
+                                                
+    NSString *localizedTipAmountDividedByThree = [twoDecimalPlaceFormatter stringFromNumber:[totalAmount decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"3"]]];
+    NSString *localizedTipAmountDividedByFour = [twoDecimalPlaceFormatter stringFromNumber:[totalAmount decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"4"]]];
+    
+    self.tipLable.text = [currencySymbol stringByAppendingString:localizedTipAmount];
+    self.totalLabel.text = [currencySymbol stringByAppendingString:localizedTotalAmount];
+    self.halfTipLabel.text = [currencySymbol stringByAppendingString:localizedTipAmountDividedByTwo];
+    self.thirdTipLabel.text = [currencySymbol stringByAppendingString:localizedTipAmountDividedByThree];
+    self.quarterTipLabel.text = [currencySymbol stringByAppendingString:localizedTipAmountDividedByFour];
     if([self.billTextField.text length]!= 0){
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.billTextField.text forKey:@"bill_amount"];
