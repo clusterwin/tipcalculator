@@ -84,7 +84,6 @@
     NSString *localizedTipAmount = [twoDecimalPlaceFormatter stringFromNumber:tipAmount];
     NSString *localizedTotalAmount = [twoDecimalPlaceFormatter stringFromNumber:totalAmount];
     NSString *localizedTipAmountDividedByTwo = [twoDecimalPlaceFormatter stringFromNumber:[totalAmount decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2"]]];
-                                                
     NSString *localizedTipAmountDividedByThree = [twoDecimalPlaceFormatter stringFromNumber:[totalAmount decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"3"]]];
     NSString *localizedTipAmountDividedByFour = [twoDecimalPlaceFormatter stringFromNumber:[totalAmount decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"4"]]];
     
@@ -109,7 +108,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int defaultTipRate = [defaults integerForKey:@"default_tip_rate"];
     self.tipSlider.value = ((float)defaultTipRate)/100;
-
     [self updateValues];
 }
 @end
