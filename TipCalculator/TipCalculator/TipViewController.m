@@ -71,6 +71,10 @@
     int tipRate = floor(self.tipSlider.value*100);
     self.TipRateLabel.text = [NSString stringWithFormat:@"%d%%",tipRate];
     NSDecimalNumber *billAmount = [NSDecimalNumber decimalNumberWithString:self.billTextField.text];
+    if([[NSDecimalNumber notANumber] isEqualToNumber:billAmount]){
+        billAmount =[NSDecimalNumber decimalNumberWithString:@"0"];
+    }
+    
     NSDecimalNumber *tipRateDecimal = [[[NSDecimalNumber alloc] initWithInt:tipRate] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]];
     
     NSDecimalNumber *tipAmount =  [billAmount decimalNumberByMultiplyingBy:tipRateDecimal];
@@ -110,4 +114,9 @@
     self.tipSlider.value = ((float)defaultTipRate)/100;
     [self updateValues];
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self updateValues];
+}
+
 @end
