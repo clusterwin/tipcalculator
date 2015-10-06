@@ -35,6 +35,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+* Demo video and required version of xcode being in different versions. Very difficult to follow.
+* Work laptop prevented the simulator running correctly due to constraints on threads monitoring other threads. 
+* Rounding issues with float. Use NSDecimal instead.
 
 ## License
 
